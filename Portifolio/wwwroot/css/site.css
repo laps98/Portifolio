@@ -30,3 +30,14 @@ body {
     position: sticky;
     z-index: 9999;
 }
+
+.titulo {
+    color:white;
+    font-size: 4rem;
+}
+
+.titulo-destaque {
+    color: red !important;
+    font-size: 6rem;
+    font-weight: 600;
+}
