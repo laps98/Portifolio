@@ -41,3 +41,33 @@ body {
     font-size: 6rem;
     font-weight: 600;
 }
+
+section {
+    display: table;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+}
+
+    section h1 {
+        display: table-cell;
+        vertical-align: middle;
+        color: #424242;
+        font-size: 50px;
+    }
+
+    section#conteudo1 {
+        background: #58beff;
+    }
+
+    section#conteudo2 {
+        background: #fd8686;
+    }
+
+    section#conteudo3 {
+        background: #acc8a7;
+    }
+
+    section#conteudo4 {
+        background: #ffc741;
+    }
