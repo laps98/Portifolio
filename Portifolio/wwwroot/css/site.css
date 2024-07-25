@@ -71,3 +71,9 @@ section {
     section#conteudo4 {
         background: #ffc741;
     }
+
+.img-item-service {
+    align-self: center;
+    height: 200px;
+    max-width: 200px;
+}
