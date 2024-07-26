@@ -77,3 +77,8 @@ section {
     height: 200px;
     max-width: 200px;
 }
+
+.img-carrossel {
+    height: max-content;
+    max-width: 200px !important;
+}
