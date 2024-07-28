@@ -1,7 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
 <section class="vh-100" id="conteudo1">
     <h1>Conteúdo 1</h1>
 </section>
@@ -27,7 +26,7 @@
 
         </div>
         <div class="col-lg-6 align-content-center">
-            <img src="https://ironbug.com.br/images/banner/rocket.svg" />
+            <img src="~/assets/images/rocket.svg" />
         </div>
     </div>
 </section>
@@ -41,14 +40,14 @@
     </div>
     <div class="row">
         <div class="col-lg-6 align-content-center">
-            <img src="https://ironbug.com.br/images/services/custom-systems.svg" class="img-item-service" />
+            <img src="~/assets/images/custom-systems.svg" class="img-item-service" />
             <div class="text-start">
                 <h3 class="fw-bold">Sistemas Personalizados</h3>
                 <p style="font-size: 1.2rem;">Desenvolvemos projetos personalizados para atender com precisão os processos específicos da sua empresa.</p>
             </div>
         </div>
         <div class="col-lg-6 align-content-center">
-            <img src="https://ironbug.com.br/images/services/mobile.svg" class="img-item-service" />
+            <img src="~/assets/images/mobile.svg" class="img-item-service" />
             <div class="text-start">
                 <h3 class="fw-bold">Aplicativos</h3>
                 <p style="font-size: 1.2rem;">Ajudando a trasformar seus sonhos em soluções corporativas e competitivas no mercado.</p>
@@ -57,34 +56,80 @@
     </div>
 
 
-
-    <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel" data-bs-interval="1000000">
-        <div class="carousel-indicators">
+    <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel" data-bs-interval="1000">
+@*         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
+        </div> *@
+
         <div class="carousel-inner">
-            <div class="carousel-item  d-flex justify-content-center active">
-                <img src="https://ironbug.com.br/images/services/mobile.svg" class="d-block w-100 img-carrossel" alt="...">
+            <div class="carousel-item active">
+                <div class="col-lg-3 m-3">
+                    <div class="card h-100">
+                        <div class="card-body align-content-lg-around">
+                            <img src="~/assets/images/mobile.svg" class="d-block w-100 img-fluid" alt="...">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="carousel-item  d-flex justify-content-center">
-                <img src="https://ironbug.com.br/images/services/custom-systems.svg" class="d-block w-100 img-carrossel" alt="...">
+            <div class="carousel-item">
+                <div class="col-lg-3 m-3">
+                    <div class="card h-100">
+                        <div class="card-body align-content-lg-around">
+                            <img src="~/assets/images/custom-systems.svg" class="d-block w-100 img-fluid" alt="...">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="carousel-item  d-flex justify-content-center">
-                <img src="https://ironbug.com.br/images/banner/rocket.svg" class="d-block w-100 img-carrossel" alt="...">
+            <div class="carousel-item">
+                <div class="col-lg-3 m-3">
+                    <div class="card h-100">
+                        <div class="card-body align-content-lg-around">
+                            <img src="~/assets/images/rocket.svg" class="d-block w-100 img-fluid" alt="...">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
     </div>
 
+
+    @*     <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel" data-bs-interval="1000000">
+    <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+    <div class="carousel-item  d-flex justify-content-center active">
+    <img src="~/assets/images/mobile.svg" class="d-block w-100 img-carrossel" alt="...">
+    </div>
+    <div class="carousel-item  d-flex justify-content-center">
+    <img src="~/assets/images/custom-systems.svg" class="d-block w-100 img-carrossel" alt="...">
+    </div>
+    <div class="carousel-item  d-flex justify-content-center">
+    <img src="~/assets/images/rocket.svg" class="d-block w-100 img-carrossel" alt="...">
+    </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+    *@
 </section>
 
 <section class="vh-100" id="conteudo3">
@@ -112,7 +157,7 @@
 
         </div>
         <div class="col-lg-6 align-content-center">
-            <img src="https://ironbug.com.br/images/banner/rocket.svg" />
+            <img src="~/assets/images/rocket.svg" />
         </div>
     </div>
 </section>

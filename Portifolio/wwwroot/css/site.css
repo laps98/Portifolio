@@ -82,3 +82,9 @@ section {
     height: max-content;
     max-width: 200px !important;
 }
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+}

@@ -1,4 +1,15 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+var items = document.querySelectorAll('.carousel .carousel-item');
 
-// Write your JavaScript code.
+items.forEach((e) => {
+    const slide = 4;
+    let next = e.nextElementSibling;
+    for (var i = 0; i < slide; i++) {
+        if (!next) {
+            next = items[0]
+        }
+        let clonechild = next.cloneNode(true)
+        e.appendChild(clonechild.children[0])
+        next = next.nextElementSibling
+    }
+})
