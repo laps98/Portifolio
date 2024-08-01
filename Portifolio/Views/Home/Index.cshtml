@@ -1,13 +1,20 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@section Scripts{
-<script src="@Url.Content("~/js/Site/module.js")"></script>
+@section Scripts {
+    <script src="@Url.Content("~/js/Site/module.js")"></script>
 }
 
 <div ng-controller="SiteController">
     <section class="vh-100" id="conteudo1">
-        <h1>Conteúdo 1</h1>{{message}}
+        <h1>Conteúdo 1</h1>
+        <div>
+            <input ng-model="endereco.Cep" ng-blur="buscarCep()" />
+            <input ng-model="endereco.Bairro"/>
+            <input ng-model="endereco.Localidade"/>
+            <input ng-model="endereco.Logradouro"/>
+            <input ng-model="endereco.Uf"/>
+        </div>
     </section>
     <section class="d-flex justify-content-center vh-100" id="section-primeiro" style="background-color: black;">
         <div class="row container">
