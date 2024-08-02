@@ -80,7 +80,7 @@ section {
 
 .img-carrossel {
     height: max-content;
-    max-width: 200px !important;
+    max-width: 100px !important;
 }
 
 .carousel-inner .carousel-item.active,
