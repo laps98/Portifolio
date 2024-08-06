@@ -1,6 +1,21 @@
+using Microsoft.EntityFrameworkCore;
+using Portifolio.Context;
+
 var builder = WebApplication.CreateBuilder(args);
+var service = builder.Services;
+
+// adicione as linhas abaixo dentro da função que já existe
+var connection = builder.Configuration["ConectionString:DefaultConnection"];
+service.AddDbContext<AreaDbContext>(options =>
+{
+    options.UseMySql(connection, ServerVersion.AutoDetect(connection));
+});
+service.AddScoped<DbContext, AreaDbContext>();
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllers();
+
+
 var app = builder.Build();
 
 //// Configure the HTTP request pipeline.
