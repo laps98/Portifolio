@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Portifolio.Context;
+using Portifolio.Domain.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 var service = builder.Services;
@@ -10,7 +11,7 @@ service.AddDbContext<AreaDbContext>(options =>
 {
     options.UseMySql(connection, ServerVersion.AutoDetect(connection));
 });
-service.AddScoped<DbContext, AreaDbContext>();
+service.AddScoped<IAreaDbContext, AreaDbContext>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllers();
