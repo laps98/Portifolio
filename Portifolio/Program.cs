@@ -5,7 +5,7 @@ using Portifolio.Domain.Context;
 var builder = WebApplication.CreateBuilder(args);
 var service = builder.Services;
 
-var connection = builder.Configuration["ConectionStrings:DefaultConnection"];
+var connection = builder.Configuration["ConnectionStrings:DefaultConnection"];
 service.AddDbContext<AreaDbContext>(options =>
 {
     options.UseMySql(connection, ServerVersion.AutoDetect(connection));
