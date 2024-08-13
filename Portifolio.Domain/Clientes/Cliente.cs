@@ -14,4 +14,6 @@ public class Cliente
     public string Uf { get; set; }
     public string Numero { get; set; }
     public string? Observacao { get; set; }
+
+    public virtual List<Animal> Animais { get; set; } = new HashSet<Animal>();
 }
