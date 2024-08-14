@@ -1,6 +1,10 @@
-﻿namespace Portifolio.Domain.FichasTecnica;
+﻿using Portifolio.Domain.Animais;
+using Portifolio.Domain.Enums;
+using Portifolio.Domain.Racas;
 
-public class FichasTecnicas
+namespace Portifolio.Domain.FichasTecnica;
+
+public class FichaTecnica
 {
     public Guid IdAnimal { get; set; }
     public Guid IdRaca { get; set; }
@@ -9,5 +13,8 @@ public class FichasTecnicas
     public string Cor { get; set; }
     public Sexo Sexo { get; set; }
     public DateTime DataDeAlteracao { get; set; }
+
+    public virtual Animal Animal { get; set; }
+    public virtual Raca Raca { get; set; }
 
 }

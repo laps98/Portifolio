@@ -1,4 +1,6 @@
-﻿namespace Portifolio.Domain.Clientes;
+﻿using Portifolio.Domain.Animais;
+
+namespace Portifolio.Domain.Clientes;
 
 public class Cliente
 {
@@ -15,5 +17,5 @@ public class Cliente
     public string Numero { get; set; }
     public string? Observacao { get; set; }
 
-    public virtual List<Animal> Animais { get; set; } = new HashSet<Animal>();
+    public virtual ICollection<Animal> Animais { get; set; } = new HashSet<Animal>();
 }

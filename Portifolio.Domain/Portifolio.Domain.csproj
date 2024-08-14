@@ -21,7 +21,6 @@
     <Folder Include="Produtos\" />
     <Folder Include="Veterinarios\" />
     <Folder Include="Vacinas\" />
-    <Folder Include="Racas\" />
     <Folder Include="Servicos\" />
     <Folder Include="Usuarios\" />
   </ItemGroup>
