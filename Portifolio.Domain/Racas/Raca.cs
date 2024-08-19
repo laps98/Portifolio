@@ -1,4 +1,6 @@
-﻿namespace Portifolio.Domain.Racas;
+﻿using Portifolio.Domain.Especies;
+
+namespace Portifolio.Domain.Racas;
 
 public class Raca
 {

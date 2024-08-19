@@ -15,8 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Especie\" />
-    <Folder Include="Lotes\" />
     <Folder Include="Consultas\" />
     <Folder Include="Produtos\" />
     <Folder Include="Veterinarios\" />
