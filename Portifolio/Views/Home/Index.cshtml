@@ -9,12 +9,47 @@
     <section class="vh-100" id="conteudo1">
         <h1>Conteúdo 1</h1>
         <div>
-            <input ng-model="endereco.Cep" ng-blur="buscarCep()" />
-            <input ng-model="endereco.Bairro" />
-            <input ng-model="endereco.Localidade" />
-            <input ng-model="endereco.Logradouro" />
-            <input ng-model="endereco.Uf" />
-            <input ng-model="teste.nome" />
+            <div class="mt-3">
+                <label for="Nome" class="form-label">Nome</label>
+                <input class="form-control" ng-model="endereco.Nome" />
+            </div>
+            <div class="mt-3">
+                <label for="Telefone" class="form-label">Telefone</label>
+                <input class="form-control" ng-model="endereco.Telefone" />
+            </div>
+            <div class="mt-3">
+                <label for="Email" class="form-label">Email</label>
+                <input class="form-control" ng-model="endereco.Email" />
+            </div>
+@*             <div class="mt-3">
+                <label for="DataDeRegistro" class="form-label">DataDeRegistro</label>
+                <input class="form-control" ng-model="endereco.DataDeRegistro" />
+            </div> *@
+            <div class="mt-3">
+                <label for="Cep" class="form-label">Cep</label>
+                <input class="form-control" ng-model="endereco.Cep" ng-blur="buscarCep()" />
+            </div>
+            <div class="mt-3">
+                <input class="form-control" ng-model="endereco.Bairro" />
+                <label for="Bairro" class="form-label">Bairro</label>
+            </div>
+            <div class="mt-3">
+                <label for="Localidade" class="form-label">Localidade</label>
+                <input class="form-control" ng-model="endereco.Localidade" />
+            </div>
+            <div class="mt-3">
+                <label for="Numero" class="form-label">Numero</label>
+                <input class="form-control" ng-model="endereco.Numero" />
+            </div>
+            <div class="mt-3">
+                <label for="Logradouro" class="form-label">Logradouro</label>
+                <input class="form-control" ng-model="endereco.Logradouro" />
+            </div>
+            <div class="mt-3">
+                <label for="Uf" class="form-label">Uf</label>
+                <input class="form-control" ng-model="endereco.Uf" />
+            </div>
+
         </div>
     </section>
     <section class="d-flex justify-content-center vh-100" id="section-primeiro" style="background-color: black;">

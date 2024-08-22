@@ -24,29 +24,29 @@ public class AreaDbContext : DbContext, IAreaDbContext
 
     public override int SaveChanges()
     {
-        UpdateSoftDelete();
+        //UpdateSoftDelete();
         return base.SaveChanges();
     }
 
-    public async Task<int> SaveChangesAsync()
-    {
-        UpdateSoftDelete();
-        return await base.SaveChangesAsync();
-    }
+    //public async Task<int> SaveChangesAsync()
+    //{
+    //    UpdateSoftDelete();
+    //    return await base.SaveChangesAsync();
+    //}
 
-    private void UpdateSoftDelete()
-    {
-        ChangeTracker.DetectChanges();
+    //private void UpdateSoftDelete()
+    //{
+    //    ChangeTracker.DetectChanges();
 
-        var markedAsDeleted = ChangeTracker.Entries().Where(q => q.State == EntityState.Deleted);
+    //    var markedAsDeleted = ChangeTracker.Entries().Where(q => q.State == EntityState.Deleted);
 
-        foreach (var item in markedAsDeleted)
-        {
-            //if (item.Entity is not IExclusaoLogica entity) continue;
+    //    foreach (var item in markedAsDeleted)
+    //    {
+    //        //if (item.Entity is not IExclusaoLogica entity) continue;
 
-            item.State = EntityState.Unchanged;
-            //entity.Excluido = true;
-        }
-    }
+    //        item.State = EntityState.Unchanged;
+    //        //entity.Excluido = true;
+    //    }
+    //}
 }
 
