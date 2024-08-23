@@ -8,27 +8,46 @@
 
         this.teste = function () {
             return $http.get('/api/Testes/GetData');
-        }
+        };
+
+        this.salvar = function (dados) {
+            console.log('Dados enviados:', dados);
+            return $http({
+                url: '/api/Testes/Save',
+                method: "POST",
+                data: dados
+            })
+                .then(function (response) {
+                    console.log('Resposta do servidor:', response);
+                    return response; // success
+                }, function (response) { // optional
+                    console.error('Erro ao salvar dados:', response);
+                    // Adicione um tratamento adequado para o erro
+                });
+        };
+
     });
 
     app.controller('SiteController', function ($scope, $dataService) {
 
-        $scope.endereco = [];
+        $scope.cliente = [];
         $scope.teste = [];
 
         $scope.buscarCep = () => {
-            if ($scope.endereco.Cep == null || $scope.endereco.Cep.length != 8)
+            if ($scope.cliente.Cep == null || $scope.cliente.Cep.length != 8)
                 return;
-            $dataService.getData($scope.endereco.Cep).then(function (response) {
+            $dataService.getData($scope.cliente.Cep).then(function (response) {
                 let data = response.data;
-                $scope.endereco.Bairro = data.bairro;
-                $scope.endereco.Localidade = data.localidade;
-                $scope.endereco.Logradouro = data.logradouro;
-                $scope.endereco.Uf = data.uf;
+                $scope.cliente.Bairro = data.bairro;
+                $scope.cliente.Localidade = data.localidade;
+                $scope.cliente.Logradouro = data.logradouro;
+                $scope.cliente.Uf = data.uf;
 
             });
-            $dataService.teste().then((r) => {
-                $scope.teste = r.data;
+        }
+        $scope.salvar = () => {
+            $dataService.salvar($scope.cliente).then((r) => {
+                $scope.teste = r;
             })
         }
 

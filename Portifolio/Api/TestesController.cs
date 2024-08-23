@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
 using Portifolio.Domain.Clientes;
 using Portifolio.Domain.Context;
 using Portifolio.Domain.ViewModel.Cliente;
@@ -16,29 +17,41 @@ public class TestesController : Controller
         _context = context;
     }
 
-    [HttpGet("Save")]
+    [HttpPost("Save")]
     public IActionResult Save(ClienteRequest request)
     {
-        var cliente = new Cliente
+        try
         {
-            //Id = request.Id,
-            Nome = request.Nome,
-            Telefone = request.Telefone,
-            Email = request.Email,
-            DataDeRegistro = request.DataDeRegistro,
-            Cep = request.Cep,
-            Bairro = request.Bairro,
-            Localidade = request.Localidade,
-            Logradouro = request.Logradouro,
-            Uf = request.Uf,
-            Numero = request.Numero,
-            Observacao = request.Observacao,
-        };
+            var hoje = DateTime.Now;
 
-        _context.Clientes.Add(cliente);
+            var cliente = new Cliente
+            {
+                Nome = request.Nome,
+                Telefone = request.Telefone,
+                Email = request.Email,
+                DataDeRegistro = hoje,
+                Cep = request.Cep,
+                Bairro = request.Bairro,
+                Localidade = request.Localidade,
+                Logradouro = request.Logradouro,
+                Uf = request.Uf,
+                Numero = request.Numero,
+                Observacao = request.Observacao,
+            };
 
-        _context.SaveChanges();
+            _context.Clientes.Add(cliente);
+            _context.SaveChanges();
 
-        return Ok("Salvo com sucesso");
+            return Ok("Salvo com sucesso");
+        }
+        catch (Exception ex)
+        {
+            // Logar o erro (use um logger configurado)
+            // logger.LogError(ex, "Erro ao salvar o cliente");
+
+            // Retornar um erro 500 com uma mensagem detalhada
+            return StatusCode(500, "Ocorreu um erro ao salvar o cliente. Por favor, tente novamente.");
+        }
     }
+
 }
