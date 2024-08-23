@@ -11,26 +11,37 @@
         };
 
         this.salvar = function (dados) {
+            // Exibe os dados enviados para verificação
             console.log('Dados enviados:', dados);
+
+            // Realiza uma requisição POST usando o serviço $http
             return $http({
-                url: '/api/Testes/Save',
-                method: "POST",
-                data: dados
-            })
-                .then(function (response) {
-                    console.log('Resposta do servidor:', response);
-                    return response; // success
-                }, function (response) { // optional
-                    console.error('Erro ao salvar dados:', response);
-                    // Adicione um tratamento adequado para o erro
-                });
+                url: '/api/Testes/Save',  // URL do endpoint
+                method: 'POST',           // Método HTTP
+                data: dados,               // Dados enviados no corpo da requisição
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(function (response) {
+                // Loga a resposta de sucesso no console
+                console.log('Resposta do servidor:', response);
+                return response.data;     // Retorna apenas os dados da resposta
+            }).catch(function (response) {
+                // Loga o erro no console para depuração
+                console.error('Erro ao salvar dados:', response);
+
+                // Adiciona um tratamento adequado para o erro
+                // Aqui você pode manipular o erro e mostrar mensagens para o usuário
+                return Promise.reject(response);
+            });
         };
+
 
     });
 
     app.controller('SiteController', function ($scope, $dataService) {
 
-        $scope.cliente = [];
+        $scope.cliente = {};
         $scope.teste = [];
 
         $scope.buscarCep = () => {
@@ -46,9 +57,13 @@
             });
         }
         $scope.salvar = () => {
-            $dataService.salvar($scope.cliente).then((r) => {
-                $scope.teste = r;
-            })
+            $dataService.salvar($scope.cliente).then(function (response) {
+                console.log('Cliente salvo com sucesso!', response);
+                // Aqui você pode adicionar lógica para lidar com a resposta
+            }).catch(function (error) {
+                console.error('Falha ao salvar cliente', error);
+                // Aqui você pode adicionar lógica para lidar com erros
+            });
         }
 
         $scope.message = "Hello from AngularJS!";

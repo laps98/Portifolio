@@ -18,7 +18,7 @@ public class TestesController : Controller
     }
 
     [HttpPost("Save")]
-    public IActionResult Save(ClienteRequest request)
+    public IActionResult Save([FromBody] ClienteRequest request)
     {
         try
         {
