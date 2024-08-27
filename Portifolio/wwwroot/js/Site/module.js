@@ -39,7 +39,37 @@
 
     });
 
-    app.controller('SiteController', function ($scope, $dataService) {
+    app.service('$mensagem', function () {
+        // Array para armazenar as mensagens
+        var alerts = [];
+
+        // Método para adicionar uma nova mensagem
+        this.addAlert = function (type, message) {
+            alerts.push({
+                type: type,
+                message: message
+            });
+        };
+
+        // Método para obter todas as mensagens
+        this.getAlerts = function () {
+            return alerts;
+        };
+
+        // Método para remover uma mensagem específica
+        this.removeAlert = function (index) {
+            if (index > -1 && index < alerts.length) {
+                alerts.splice(index, 1);
+            }
+        };
+
+        // Método para limpar todas as mensagens
+        this.clearAlerts = function () {
+            alerts = [];
+        };
+    });
+
+    app.controller('SiteController', function ($scope, $dataService, $mensagem) {
 
         $scope.cliente = {};
         $scope.teste = [];
@@ -67,6 +97,31 @@
         }
 
         $scope.message = "Hello from AngularJS!";
+
+        $scope.addSuccess = function () {
+            $mensagem.addAlert('success', 'Operação realizada com sucesso!');
+        };
+
+        // Adicionar uma nova mensagem de erro
+        $scope.addError = function () {
+            $mensagem.addAlert('error', 'Ocorreu um erro durante a operação.');
+        };
+
+        // Obter todas as mensagens
+        $scope.getAlerts = function () {
+            return $mensagem.getAlerts();
+        };
+
+        // Remover uma mensagem específica
+        $scope.removeAlert = function (index) {
+            $mensagem.removeAlert(index);
+        };
+
+        // Limpar todas as mensagens
+        $scope.clearAlerts = function () {
+            $mensagem.clearAlerts();
+        };
+
 
     });
 
